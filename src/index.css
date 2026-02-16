@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+.dock-icon:hover+.dock-icon{
+    scale:1.1;
+    transform: translateY(-15%);
+}
+.dock-icon:has(+.dock-icon:hover)
+{
+    scale:1.1;
+    transform: translateY(-15%);
+}
+
+
