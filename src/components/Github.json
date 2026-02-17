@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995",
+    "title": "ChatPro - AI Chat Application",
+    "description": "A ChatGPT-style AI chatbot built with React and Tailwind CSS featuring markdown rendering, syntax highlighting, and conversation history.",
+    "technologies": ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Gemini API"],
+    "repoLink": "https://github.com/yourusername/chatpro",
+    "demoLink": "https://chatpro-demo.vercel.app"
+  },
+  {
+    "id": 2,
+    "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8",
+    "title": "Developer Portfolio Website",
+    "description": "Modern portfolio with glassmorphism design, smooth animations, and responsive layout.",
+    "technologies": ["React", "Tailwind CSS", "GSAP", "Vite"],
+    "repoLink": "https://github.com/yourusername/portfolio",
+    "demoLink": "https://portfolio-demo.vercel.app"
+  },
+  {
+    "id": 3,
+    "image": "https://images.unsplash.com/photo-1557821552-17105176677c",
+    "title": "E-Commerce Store",
+    "description": "Full-stack e-commerce application with authentication, cart system, and payment integration.",
+    "technologies": ["React", "Redux", "Node.js", "Express", "MongoDB", "Stripe"],
+    "repoLink": "https://github.com/yourusername/ecommerce-store",
+    "demoLink": "https://ecommerce-demo.vercel.app"
+  },
+  {
+    "id": 4,
+    "image": "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d",
+    "title": "Task Manager App",
+    "description": "A productivity app to manage daily tasks with CRUD operations and persistent storage.",
+    "technologies": ["React", "Firebase", "Tailwind CSS"],
+    "repoLink": "https://github.com/yourusername/task-manager",
+    "demoLink": "https://taskmanager-demo.vercel.app"
+  },
+  {
+    "id": 5,
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+    "title": "Weather Forecast App",
+    "description": "Real-time weather application using public API with location search and forecasts.",
+    "technologies": ["React", "OpenWeather API", "CSS"],
+    "repoLink": "https://github.com/yourusername/weather-app",
+    "demoLink": "https://weather-demo.vercel.app"
+  }
+]
