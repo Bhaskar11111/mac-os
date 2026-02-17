@@ -6,16 +6,19 @@ import Github from '../windows/Github'
 import Notes from '../windows/Notes'
 import Resume from '../windows/Resume'
 import Spotify from '../windows/Spotify'
+import Terminal from 'react-console-emulator'
+import CLI from '../windows/CLI'
 
 const Home = () => {
   return (
       <>
     <div className="w-full min-h-screen overflow-hidden bg-[url('C:\Users\HP\Desktop\MAC-0S\src\public\background.jpg')] relative bg-cover bg-center">
-      <Navbar/>
       <Github/>
       <Resume/>
       <Notes/>
       <Spotify/>
+      <Navbar/>
+     <CLI/>
       <Dock/>
     </div>
     </>
