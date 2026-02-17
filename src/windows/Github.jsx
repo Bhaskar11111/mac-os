@@ -7,13 +7,13 @@ const Github = () => {
   return (
     <>
        
-         <CollapseWindow>
+         <CollapseWindow height='70vh' width='50vw' x='600' y='50'>
          <div className="flex relative group flex-wrap  items-center justify-center">
     {githubData.map((elem,indx)=>
     {
         return <>
         
-             <div className="w-[44%] m-3 rounded-4xl
+             <div className="cards w-[44%] m-3 rounded-4xl
 p-2 bg-white/8 backdrop-blur-[1.4px] max-h-[50vh] overflow-hidden hover:overflow-scroll
 transition-all duration-500 ease-in-out
 hover:scale-110

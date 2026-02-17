@@ -1,18 +1,24 @@
 import React from 'react'
 import { Rnd } from 'react-rnd'
 
-const CollapseWindow = ({children}) => {
+const CollapseWindow = ({children,width='40vw', height='40vh',x='500', y='150'}) => {
   return (
    <>
    <Rnd default={
     {
-        width:"70vh",
-        height:"50vh",
-        x:500,
-        y:150
+        width:width,
+        height:height,
+        x:x,
+        y:y,
     }
-   }>
-    <div className="window  bg-black/50 backdrop-blur-2xl rounded-xl relative overflow-y-scroll max-h-[100%]">
+    
+    
+   }
+   minWidth={200}
+  maxWidth={1000}
+  minHeight={200}
+  maxHeight={800}>
+    <div className="window active:z-160 bg-black/50 backdrop-blur-2xl rounded-xl relative overflow-y-scroll max-h-[100%]">
     <div className="w-full z-99 sticky top-0 p-2 bg-zinc-800/70 backdrop-blur-xl items-center flex gap-1">
         <div className="w-[2vh] h-[2vh] rounded-full bg-red-500"></div>
         <div className="w-[2vh] h-[2vh] rounded-full bg-yellow-400"></div>

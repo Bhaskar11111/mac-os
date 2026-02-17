@@ -1,0 +1,73 @@
+┌──(root@bhaskar)-[/blacksite/init]
+└─$ ./profile_loader --force --stealth
+
+[+] Establishing secure channel...
+[+] Injecting identity vectors...
+[+] Decrypting developer profile...
+[+] Loading modules ............ done
+██████╗   ██╗  ██╗ █████╗ ███████╗██╗  ██╗ █████╗ ██████╗
+██╔══██╗██║  ██║██╔═██ ██╔════╝██║ ██╔╝██╔══██╗██╔══██╗
+██████╔╝██████████████║████████████╔╝ ██ █████║██████╔╝
+██╔══██╗██╔═██║██╔═██║╚════██║██╔═██ ██╔══██║██╔══██╗
+██████╔╝██║  ██║██║   ██║███████║██║  ██╗██║  ██║██║ ██║
+╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝
+
+
+IDENTITY : Bhaskar Mishra
+ROLE     : MERN Stack Developer
+FOCUS    : UI/UX Engineering
+
+------------------------------------------------------
+
+> cat bio.txt
+Passionate MERN Stack Developer building responsive,
+efficient and user-centered web applications with
+performance and scalability in mind.
+
+> geo.locate
+Indore, India
+
+> education.dump
+BE Computer Science Engineering
+Medicaps University (2023 - Present)
+
+ST. Mary's School, Morena
+Xth Percentage : 85%
+
+> experience.dump
+Vice President - Google Developer Groups (MU)
+- Lead core team for events and workshops
+- Coordinate with GDG network
+
+Video Editing Executive - AWS (MU)
+- Produce promotional and event videos
+- Follow AWS brand standards
+
+> publications.dump
+Applying Machine Learning Techniques to Estimate
+Post-Mortem Interval from Decomposition Stages
+
+> projects.scan
+Arcade Movie Database
+- React | Tailwind | TMDb API
+
+Sac-Ville E-Commerce
+- MongoDB | Express | Node.js | EJS
+
+> techstack.list
+HTML CSS SCSS JavaScript C C++
+React Node.js Express MongoDB
+Tailwind CSS GSAP Framer Motion
+
+> contact.show
+email    : bhaskarmishra911@gmail.com
+phone    : +91 9522508486
+github   : github.com/yourusername
+linkedin : linkedin.com/in/yourprofile
+
+------------------------------------------------------
+
+SYSTEM STATUS : READY
+MODE          : DEPLOYMENT
+
+└─$ _

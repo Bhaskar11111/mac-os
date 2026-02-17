@@ -3,7 +3,7 @@ import Home from './components/Home'
 
 const App = () => {
   return (
-    <div className="">
+    <div className="w-full h-screen overflow-hidden">
       <Home/>
     </div>
   )
