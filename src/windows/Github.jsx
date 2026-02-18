@@ -3,12 +3,12 @@ import githubData from '../components/Github.json'
 import CollapseWindow from './CollapseWindow'
 
 
-const Github = () => {
+const Github = ({windowState,setWindowState,windowName}) => {
   return (
     <>
        
-         <CollapseWindow height='70vh' width='50vw' x='600' y='50'>
-         <div className="flex relative group flex-wrap  items-center justify-center">
+         <CollapseWindow windowState={windowState} setWtindowState={setWindowState} windowName={windowName} height='70vh' width='50vw'>
+         <div className="flex relative  group flex-wrap  items-center justify-center">
     {githubData.map((elem,indx)=>
     {
         return <>
@@ -27,7 +27,7 @@ hover:scale-110
         <div className="flex flex-wrap gap-3 mt-2 ">
             {elem.technologies.map((elem)=>
             {
-                return <h1 className='bg-zinc-100/1 rounded-full backdrop-blur-2xl px-3 py-1 text-xs'>{elem}</h1>
+                return <h1 className='bg-zinc-100/1 rounded-full backdrop-blur-2xl text-zinc-400 px-3 py-1 text-xs'>{elem}</h1>
             })}
            <a href={elem.repoLink}></a> <h1 className='w-[90%] text-[10px] text-blue-700 truncate'>{elem.repoLink}</h1>
             <a href={elem.demoLink}>

@@ -2,15 +2,17 @@ import React from 'react'
 import CollapseWindow from './CollapseWindow'
 import resume from '../assets/Resume.pdf'
 
-const Resume = () => {
+const Resume = ({windowState,setWindowState,windowName}) => {
   return (
-    <>
-    <CollapseWindow width='20vw' height='20vh' x='1100' y='500'>
-    
-        <embed className='resume object-center object-cover w-[20vw] p-1 h-[60vh] border-none overflow-hidden' src={resume}></embed>
-    
+    <CollapseWindow windowName={windowName} windowState={windowState} setWtindowState={setWindowState} x='480' y={100} width={600} height={500}>
+      <div className="w-full h-full overflow-hidden">
+        <embed
+          src={resume}
+          className="w-full h-full"
+          type="application/pdf"
+        />
+      </div>
     </CollapseWindow>
-    </>
   )
 }
 

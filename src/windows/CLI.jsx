@@ -2,7 +2,7 @@ import React from 'react'
 import CollapseWindow from './CollapseWindow'
 import Terminal from 'react-console-emulator'
 
-const CLI = () => {
+const CLI = (windowState,setWindowState,windowName) => {
  const commands = {
 
   intro: {
@@ -57,41 +57,41 @@ LinkedIn: linkedin.com/in/dummylink
 
 };
 const welcomeMessages =  `
-=====================================
- Bhaskar Mishra - Portfolio Terminal
-=====================================
+┌──────────────────────────────────────────────┐
+│   ACCESSING: BHASKAR_MISHRA@PORTFOLIO_SYS   │
+└──────────────────────────────────────────────┘
 
-Available Commands:
+[+] Establishing secure connection...
+[+] Loading user profile...
+[+] Decrypting command registry...
+[+] System ready.
 
-intro     → About me
-skills    → Technical skills
-projects  → My projects
-contact   → Contact information
-clear     → Clear terminal
+AVAILABLE COMMANDS:
 
-Type a command and press Enter.
+> intro       :: display identity
+> skills      :: list technical arsenal
+> projects    :: enumerate active builds
+> contact     :: show communication channels
+> clear       :: purge terminal buffer
+
+TYPE COMMAND AND PRESS ENTER
+
 `
 
   return (
     <>
-    <CollapseWindow width='42vw' height='40vh'>
+    <CollapseWindow windowName={windowName} windowState={windowState} setWtindowState={setWindowState} width='42vw' height='52vh' x='450' y='180'>
     <div className="w-[40.7vw]">
-        <Terminal  terminalStyle={{
-    backgroundColor: 'transparent',
-    color: "#00ff9c",
-    fontSize: "10px",
-    fontFamily: "JetBrains Mono"
-  }}
+        <Terminal style={{
+            color:"#00C950",
+            backgroundColor:'#fff/1',
+            fontSize:'12px'
+        }}
+        contentStyle={{
+  color: "#00C950",    
+  fontSize: "13 px"
+}}
 
-  contentStyle={{
-    backgroundColor:'transparent',
-    color: "#00C950",
-    fontSize: "14px"
-  }}
-
-  promptLabelStyle={{
-    color: "#FB2C36"
-  }}
     commands={commands}
         welcomeMessage={welcomeMessages}
         promptLabel={'bhaskarmishra~$%'}

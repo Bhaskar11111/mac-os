@@ -5,7 +5,7 @@ import { atelierLakesideDark } from 'react-syntax-highlighter/dist/esm/styles/hl
 import notes from '../assets/Notes.txt'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
-const Notes = () => {
+const Notes = ({windowName,windowState,setWindowState}) => {
 
   const [markdown, setMarkdown] = useState("")
 
@@ -17,7 +17,7 @@ const Notes = () => {
   }, [])
 
   return (
-    <CollapseWindow height='70vh' width='45vw' x='20' y='70'>
+    <CollapseWindow windowName={windowName} windowState={windowState} setWtindowState={setWindowState} height='70vh' width='45vw' x='420'>
       <div className="p-3">
     
         <SyntaxHighlighter style={atelierLakesideDark}>{markdown}</SyntaxHighlighter>  
