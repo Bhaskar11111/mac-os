@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <>
   
-        <div className="w-full flex text-white/90   backdrop-blur-xs p-1 inset-shadow-sm inset-shadow-current/25 shadow-md">
+        <div className="w-full flex text-white/90   backdrop-blur-sm p-1 inset-shadow- inset-shadow-current/25 shadow-md">
         <div className="left w-1/2 flex  gap-3 ml-2 ">
         <img src='/public/apple.svg' alt="" />
         <h1>Bhaskar Mishra</h1>

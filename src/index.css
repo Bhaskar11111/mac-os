@@ -2,12 +2,12 @@
 
 .dock-icon:hover+.dock-icon{
     scale:1.1;
-    transform: translateY(-15%);
+    transform: translateY(-20%);
 }
 .dock-icon:has(+.dock-icon:hover)
 {
     scale:1.1;
-    transform: translateY(-15%);
+    transform: translateY(-20%);
 }
 
 
