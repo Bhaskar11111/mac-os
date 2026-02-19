@@ -1,47 +1,47 @@
 [
   {
     "id": 1,
-    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995",
-    "title": "ChatPro - AI Chat Application",
-    "description": "A ChatGPT-style AI chatbot built with React and Tailwind CSS featuring markdown rendering, syntax highlighting, and conversation history.",
-    "technologies": ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Gemini API"],
-    "repoLink": "https://github.com/yourusername/chatpro",
-    "demoLink": "https://chatpro-demo.vercel.app"
+    "image": "https://img.freepik.com/free-vector/shiny-film-negative-cinema-background-with-text-space_1017-52787.jpg?semt=ais_user_personalization&w=740&q=80",
+    "title": "Arcade - Movie Database",
+    "description": "A modern movie database website with dynamic search, detailed movie pages, trending sections, and smooth UI interactions inspired by IMDb and TMDB.",
+    "technologies": ["React", "Tailwind CSS", "TMDB API", "Axios", "Vite"],
+    "repoLink": "https://github.com/Bhaskar11111/arcade-movie",
+    "demoLink": "https://arcade-bm.netlify.app"
   },
   {
     "id": 2,
-    "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8",
-    "title": "Developer Portfolio Website",
-    "description": "Modern portfolio with glassmorphism design, smooth animations, and responsive layout.",
-    "technologies": ["React", "Tailwind CSS", "GSAP", "Vite"],
-    "repoLink": "https://github.com/yourusername/portfolio",
-    "demoLink": "https://portfolio-demo.vercel.app"
+    "image": "https://cdn.mos.cms.futurecdn.net/qWVMbBgkiqqLLds9YZw2Xk.jpg",
+    "title": "SacVille - Fullstack Bag Store",
+    "description": "A full-stack e-commerce platform for purchasing bags with authentication, cart functionality, admin controls, and secure backend integration.",
+    "technologies": ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "JWT"],
+    "repoLink": "https://github.com/Bhaskar11111/sacville",
+    "demoLink": "https://sacville.vercel.app"
   },
   {
     "id": 3,
-    "image": "https://images.unsplash.com/photo-1557821552-17105176677c",
-    "title": "E-Commerce Store",
-    "description": "Full-stack e-commerce application with authentication, cart system, and payment integration.",
-    "technologies": ["React", "Redux", "Node.js", "Express", "MongoDB", "Stripe"],
-    "repoLink": "https://github.com/yourusername/ecommerce-store",
-    "demoLink": "https://ecommerce-demo.vercel.app"
+    "image": "https://www.kindpng.com/picc/m/470-4704555_8-bit-characters-pngs-png-download-16-bit.png",
+    "title": "erec.io - Personal LLM",
+    "description": "A personal Large Language Model interface with markdown rendering, conversational memory, and AI-powered responses integrated via external LLM API.",
+    "technologies": ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Gemini API"],
+    "repoLink": "https://github.com/Bhaskar11111/erec-io",
+    "demoLink": "https://erec.netlify.app"
   },
   {
     "id": 4,
-    "image": "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d",
-    "title": "Task Manager App",
-    "description": "A productivity app to manage daily tasks with CRUD operations and persistent storage.",
-    "technologies": ["React", "Firebase", "Tailwind CSS"],
-    "repoLink": "https://github.com/yourusername/task-manager",
-    "demoLink": "https://taskmanager-demo.vercel.app"
+    "image": "https://live.staticflickr.com/4056/4387083505_1e028f4506_b.jpg",
+    "title": "Macintosh - macOS Inspired Portfolio",
+    "description": "A macOS-inspired interactive portfolio website featuring draggable windows, custom dock, terminal interface, and smooth animations.",
+    "technologies": ["React", "Tailwind CSS", "Framer Motion", "GSAP", "Vite"],
+    "repoLink": "https://github.com/Bhaskar11111/mac-os",
+    "demoLink": "https://macintosh-portfolio.vercel.app"
   },
   {
     "id": 5,
-    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
-    "title": "Weather Forecast App",
-    "description": "Real-time weather application using public API with location search and forecasts.",
-    "technologies": ["React", "OpenWeather API", "CSS"],
-    "repoLink": "https://github.com/yourusername/weather-app",
-    "demoLink": "https://weather-demo.vercel.app"
+    "image": "https://images3.alphacoders.com/155/thumb-1920-155779.jpg",
+    "title": "Harley-Davidson Animated Website",
+    "description": "A high-performance animated clone of the Harley-Davidson website featuring scroll-triggered animations, cinematic transitions, SVG effects, and immersive user interactions.",
+    "technologies": ["HTML", "CSS", "JavaScript", "GSAP", "ScrollTrigger", "SVG Animations"],
+    "repoLink": "https://github.com/Bhaskar11111/harley-davidson",
+    "demoLink": "https://harley-davidson-clone.vercel.app"
   }
 ]

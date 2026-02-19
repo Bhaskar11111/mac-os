@@ -16,7 +16,7 @@ const CollapseWindow = ({children,width='40vw', height='40vh',x='400', y='100',w
   maxWidth={1000}
   minHeight={200}
   maxHeight={800}>
-    <div className="window cursor-alias active:z-160 bg-black/50 backdrop-blur-2xl rounded-xl relative w-full h-full flex flex-col overflow-hidden">
+    <div className="window cursor-default z-160 bg-black/50 backdrop-blur-2xl rounded-xl relative w-full h-full flex flex-col overflow-hidden">
     <div className="w-full cursor-cell z-99 sticky top-0 p-2 bg-zinc-800/70 backdrop-blur-sm inset-shadow-sm inset-shadow-current/35 shadow-xl/20 items-center flex gap-1">
         <div onClick={()=>setWtindowState((prev)=>({...prev, [windowName]:false}))} className="w-[2vh] group flex items-center justify-center relative h-[2vh] cursor-pointer rounded-full bg-red-500">
             <h1 className='text-black/60 hidden group-hover:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-90'><i className="ri-close-line"></i></h1>

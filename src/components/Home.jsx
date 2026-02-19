@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Dock from './Dock'
 import Navbar from './Navbar'
 import CollapseWindow from '../windows/CollapseWindow'
@@ -8,8 +8,29 @@ import Resume from '../windows/Resume'
 import Spotify from '../windows/Spotify'
 import Terminal from 'react-console-emulator'
 import CLI from '../windows/CLI'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import DesktopOnly from './DesktopOnly'
+
 
 const Home = () => {
+  const [isDesktop, setIsDesktop] = useState(
+    window.innerWidth >= 1024
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (!isDesktop) {
+    return <DesktopOnly />;
+  }
+
   const [windowState,setWindowState]=useState({
     github:false,
     resume:false,
@@ -19,7 +40,7 @@ const Home = () => {
   })
   return (
       <>
-    <div className="w-full min-h-screen overflow-hidden bg-[url('C:\Users\HP\Desktop\MAC-0S\src\public\background.jpg')] relative bg-cover bg-center">
+    <div className="w-full min-h-screen relative overflow-hidden bg-[url('C:\Users\HP\Desktop\MAC-0S\src\public\background.jpg')] relative bg-cover bg-center">
       {windowState.github?<Github windowName='github' windowState={windowState} setWindowState={setWindowState}/>:''}
       {windowState.resume?<Resume windowName='resume' windowState={windowState} setWindowState={setWindowState}/>:''}
       {windowState.notes?<Notes windowName='notes' windowState={windowState} setWindowState={setWindowState}/>:''}

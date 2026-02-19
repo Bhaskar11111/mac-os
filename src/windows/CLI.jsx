@@ -39,6 +39,9 @@ Arcade Movie Database
 
 Sac-Ville E-Commerce
 - MongoDB | Express | Node.js | EJS
+
+Macintosh - macOS Inspired Portfolio
+- React | Tailwind | GSAP
 `
     },
 
@@ -49,7 +52,7 @@ Sac-Ville E-Commerce
 Email   : bhaskarmishra911@gmail.com
 Phone   : +91 9522508486
 GitHub  : github.com/bhaskar11111
-LinkedIn: linkedin.com/in/dummylink
+LinkedIn: linkedin.com/in/https://www.linkedin.com/in/bhaskar-mishra-59219632a?utm_source=share_via&utm_content=profile&utm_medium=member_android
 `
     },
   };

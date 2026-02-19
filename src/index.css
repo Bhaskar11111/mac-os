@@ -49,3 +49,14 @@ pre{
     width: 0;
 }
 
+.navbar,.dockBar
+{
+  user-select: none;
+}
+
+
+
+
+*{
+    user-select: none;
+}
