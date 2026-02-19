@@ -7,7 +7,8 @@ const Dock = ({windowState,setWindowState}) => {
   return (
     <div className="  flex items-center justify-center 
     p-2 absolute bottom-3 left-1/2 -translate-x-1/2 
-    bg-zinc-500/40 backdrop-blur-xl rounded-xl">
+    rounded-3xl   px-6 py-3 font-semibold  backdrop-blur-xs inset-shadow-sm inset-shadow-current/35 shadow-xl/20 text-white w-fit cursor-pointer  transition duration-300">
+
 
       <div className="flex gap-2 items-center">
 
