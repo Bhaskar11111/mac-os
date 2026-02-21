@@ -12,12 +12,11 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import DesktopOnly from './DesktopOnly'
 
-
 const Home = () => {
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth >= 1024
   );
-
+  
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 1024);
@@ -40,7 +39,7 @@ const Home = () => {
   })
   return (
       <>
-    <div className="w-full min-h-screen relative overflow-hidden bg-[url('C:\Users\HP\Desktop\MAC-0S\src\public\background.jpg')] relative bg-cover bg-center">
+    <div className="w-full min-h-screen relative overflow-hidden bg-[url('/background.jpg')] relative bg-cover bg-center">
       {windowState.github?<Github windowName='github' windowState={windowState} setWindowState={setWindowState}/>:''}
       {windowState.resume?<Resume windowName='resume' windowState={windowState} setWindowState={setWindowState}/>:''}
       {windowState.notes?<Notes windowName='notes' windowState={windowState} setWindowState={setWindowState}/>:''}

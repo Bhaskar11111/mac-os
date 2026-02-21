@@ -27,7 +27,7 @@ gsap.from('.dockBar img',{
 })
 });
 
-    console.log(new Date);
+    // console.log(new Date);
     
   return (
     <div className="  flex items-center justify-center 
