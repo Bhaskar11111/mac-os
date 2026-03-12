@@ -123,31 +123,7 @@ const Hercules = ({ windowState, setWindowState, windowName }) => {
       </button>
     )}
 
-    <div className="relative flex-1 overflow-auto
-  rounded-[25px]
-  backdrop-blur-sm
-  border border-white/20
-  p-6
-  text-white text-sm
-  shadow-inner">
-
-
-  {!loading && review && (
-    <button
-      onClick={() => copyText(review)}
-      className="absolute top-3 right-3 text-xs px-3 py-1 rounded-lg 
-      bg-white/10 border border-white/20 hover:bg-white/20 transition"
-    >
-      Copy
-    </button>
-  )}
-
-  {loading ? (
-    <p className="animate-pulse text-blue-300 tracking-wide">
-      Hercules AI is reviewing your code...
-    </p>
-  ) : (
-   <ReactMarkdown
+    <ReactMarkdown
   remarkPlugins={[remarkGfm]}
   components={{
 
@@ -209,9 +185,6 @@ const Hercules = ({ windowState, setWindowState, windowName }) => {
 >
   {review || "AI review output will appear here..."}
 </ReactMarkdown>
-  )}
-
-</div>
 
   </div>
 )}
