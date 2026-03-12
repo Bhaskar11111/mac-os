@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import Dock from './Dock'
 import Navbar from './Navbar'
@@ -11,13 +12,13 @@ import CLI from '../windows/CLI'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import DesktopOnly from './DesktopOnly'
-
+import Hercules from '../windows/Hercules'
 
 const Home = () => {
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth >= 1024
   );
-
+  
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 1024);
@@ -37,11 +38,13 @@ const Home = () => {
     notes:false,
     spotify:false,
     cli:false,
+    hercules:false
   })
   return (
       <>
-    <div className="w-full min-h-screen relative overflow-hidden bg-[url('C:\Users\HP\Desktop\MAC-0S\src\public\background.jpg')] relative bg-cover bg-center">
+    <div className="w-full min-h-screen relative overflow-hidden bg-[url('/background.jpg')] relative bg-cover bg-center">
       {windowState.github?<Github windowName='github' windowState={windowState} setWindowState={setWindowState}/>:''}
+      {windowState.hercules?<Hercules windowName='hercules' windowState={windowState} setWindowState={setWindowState}/>:''}
       {windowState.resume?<Resume windowName='resume' windowState={windowState} setWindowState={setWindowState}/>:''}
       {windowState.notes?<Notes windowName='notes' windowState={windowState} setWindowState={setWindowState}/>:''}
       {windowState.spotify?<Spotify windowName='spotify' windowState={windowState} setWindowState={setWindowState}/>:''}

@@ -17,7 +17,7 @@ const Notes = ({windowName,windowState,setWindowState}) => {
   }, [])
 
   return (
-    <CollapseWindow windowName={windowName} windowState={windowState} setWtindowState={setWindowState} height='70vh' width='45vw' x='420'>
+    <CollapseWindow windowName={windowName} windowState={windowState} setWindowState={setWindowState} height='70vh' width='45vw' x='420'>
       <div className="p-3">
     
         <SyntaxHighlighter style={atelierLakesideDark}>{markdown}</SyntaxHighlighter>  

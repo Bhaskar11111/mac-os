@@ -27,7 +27,7 @@ gsap.from('.dockBar img',{
 })
 });
 
-    console.log(new Date);
+    // console.log(new Date);
     
   return (
     <div className="  flex items-center justify-center 
@@ -57,6 +57,10 @@ gsap.from('.dockBar img',{
        <div className="group relative dock-icon transition-all ease-in-out duration-200 hover:-translate-y-[40%] hover:scale-125">
          <img onClick={()=>setWindowState((prev)=>({...prev,notes:!prev.notes}))} className=" w-12  bg-linear-to-b from-amber-400 to-amber-600 p-1 rounded-xl  cursor-pointer rounded-xl " src="/note.svg" />
          <h1 className="text-[12px] whitespace-nowrap  hidden absolute group-hover:flex bottom- -translate-x-1/2 left-1/2">About </h1>
+       </div>
+       <div className="group relative dock-icon transition-all ease-in-out duration-200 hover:-translate-y-[40%] hover:scale-125">
+         <img onClick={()=>setWindowState((prev)=>({...prev,hercules:!prev.hercules}))} className=" w-12  bg-linear-to-b from-teal-300 to-amber-500  rounded-xl  cursor-pointer rounded-xl " src="/hercules_final.png" />
+         <h1 className="text-[12px] whitespace-nowrap  hidden absolute group-hover:flex bottom- -translate-x-1/2 left-1/2">Hercules </h1>
        </div>
         <div className="group relative dock-icon transition-all ease-in-out duration-200 hover:-translate-y-[40%] hover:scale-125">
           <img onClick={()=>setWindowState((prev)=>({...prev,resume:!prev.resume}))} className=" w-12  p-1 bg-linear-to-b from-rose-500 to-rose-900 rounded-xl  cursor-pointer" src="/pdf.svg" />

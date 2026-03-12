@@ -8,7 +8,7 @@ const DesktopOnly = () => {
         muted
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-        src="src\public\Sabrina.mp4"
+        src="/Sabrina.mp4"
       />
 <div className="absolute inset-0 bg-black/10 -z-0"></div>
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">

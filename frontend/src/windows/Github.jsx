@@ -7,7 +7,7 @@ const Github = ({windowState,setWindowState,windowName}) => {
   return (
     <>
        
-         <CollapseWindow windowState={windowState} setWtindowState={setWindowState} windowName={windowName} height='70vh' width='50vw'>
+         <CollapseWindow windowState={windowState} setWindowState={setWindowState} windowName={windowName} height='70vh' width='50vw'>
          <div className="flex relative  group flex-wrap  items-center justify-center">
     {githubData.map((elem,indx)=>
     {

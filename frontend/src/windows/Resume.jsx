@@ -4,7 +4,7 @@ import resume from '../assets/Resume.pdf'
 
 const Resume = ({windowState,setWindowState,windowName}) => {
   return (
-    <CollapseWindow windowName={windowName} windowState={windowState} setWtindowState={setWindowState} x='480' y={100} width={600} height={500}>
+    <CollapseWindow windowName={windowName} windowState={windowState} setWindowState={setWindowState} x='480' y={100} width={600} height={500}>
       <div className="w-full h-full overflow-hidden">
         <embed
           src={resume}

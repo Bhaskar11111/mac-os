@@ -22,7 +22,7 @@ const Navbar = () => {
   
         <div className="navbar w-full flex text-white/90   backdrop-blur-sm p-1 inset-shadow- inset-shadow-current/25 shadow-md">
         <div className="leftArea left w-1/2 flex  gap-3 ml-2 ">
-        <img src='/public/apple.svg' alt="" />
+        <img src='/apple.svg' alt="" />
         <h1>Bhaskar Mishra</h1>
         <h1>File</h1>
         <h1>Window</h1>
