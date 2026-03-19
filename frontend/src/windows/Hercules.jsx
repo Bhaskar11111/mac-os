@@ -29,7 +29,7 @@ const Hercules = ({ windowState, setWindowState, windowName }) => {
       setLoading(true);
       setReview("");
 
-      const res = await fetch("http://localhost:5000/review-code", {
+      const res = await fetch("http://localhost:5000/api/review-code", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

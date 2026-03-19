@@ -1,40 +1,21 @@
 const express = require("express")
-const router = express.Router()
+const app = express()
 
-const { GoogleGenerativeAI } = require("@google/generative-ai")
+const cors = require("cors")
+const cookieParser = require("cookie-parser")
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
+const aiRouter = require("./routes/ai.route")
+const authRouter=require('./routes/auth.route')
 
-router.post("/chat", async (req, res) => {
+app.use(express.json())
+app.use(cookieParser())
 
-    try {
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}))
 
-        const { message } = req.body
+app.use("/api", aiRouter)
+app.use('/api/auth',authRouter)
 
-        const model = genAI.getGenerativeModel({
-            model: "gemini-2.5-flash"
-        })
-
-        const result = await model.generateContent(message)
-
-        const response = result.response.text()
-
-        res.json({
-            success: true,
-            reply: response
-        })
-
-    } catch (error) {
-
-        console.log(error)
-
-        res.status(500).json({
-            success: false,
-            error: "AI error"
-        })
-
-    }
-
-})
-
-module.exports = router
+module.exports = app
