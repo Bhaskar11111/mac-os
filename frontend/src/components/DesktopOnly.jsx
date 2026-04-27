@@ -18,7 +18,7 @@ const DesktopOnly = () => {
         </h1>
 
         <p className="text-white/80 text-md w-[75%]">
-          This portfolio by Bhaskar Mishra is optimized only for desktop devices.
+          This macOS portfolio workspace is optimized only for desktop devices.
         </p>
 
         <p className="text-white/60 mt-2">

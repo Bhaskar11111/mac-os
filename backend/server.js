@@ -1,17 +1,29 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import mongoose from "mongoose";
+import authRoutes from "./src/routes/authRoutes.js";
+import profileRoutes from "./src/routes/profileRoutes.js";
+import connectDB from './src/config/database.js'
 
 dotenv.config();
 
+connectDB();
+
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL || "http://localhost:5173",
+  credentials: true
+}));
 app.use(express.json({ limit: "10mb" }));
 
 app.get("/", (req, res) => {
   res.send("Hercules AI backend running");
 });
+
+app.use("/api/auth", authRoutes);
+app.use("/api/profile", profileRoutes);
 
 app.post("/review-code", async (req, res) => {
 
@@ -83,6 +95,24 @@ ${code}
 
 });
 
-app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
-});
+const PORT = process.env.PORT || 5000;
+
+const startServer = async () => {
+  try {
+    if (process.env.MONGODB_URI) {
+      await mongoose.connect(process.env.MONGODB_URI);
+      console.log("MongoDB connected");
+    } else {
+      console.warn("MONGODB_URI is not configured; profile endpoints need MongoDB");
+    }
+
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error("Server startup failed:", error.message);
+    process.exit(1);
+  }
+};
+
+startServer();

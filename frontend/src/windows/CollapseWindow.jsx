@@ -1,7 +1,13 @@
 import React from 'react'
 import { Rnd } from 'react-rnd'
+import { useAuth } from '../context/UserContext'
+import { useProfile } from '../context/ProfileContext'
 
 const CollapseWindow = ({children,width='40vw', height='40vh',x='400', y='100',windowState,setWindowState,windowName}) => {
+  const { user } = useAuth()
+  const { profile } = useProfile()
+  const title = `${profile?.username || user?.name || 'portfolio'} - ${windowName || 'window'}`
+
   return (
    <>
    <Rnd default={
@@ -27,7 +33,7 @@ const CollapseWindow = ({children,width='40vw', height='40vh',x='400', y='100',w
          <div className="w-[2vh] h-[2vh] group flex relative items-center justify-center cursor-pointer rounded-full bg-green-500">
             <h1 className='absolute text-xs top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden group-hover:flex text-black/60'><i className="ri-fullscreen-exit-line"></i></h1>
         </div>
-        <h1 className='text-xs ml-2 text-zinc-500 font-semibold'>bhaskarmishra - zsh__24</h1>
+        <h1 className='text-xs ml-2 text-zinc-500 font-semibold'>{title}</h1>
     </div>
     <div className="flex-1 overflow-y-scroll">
         {children}

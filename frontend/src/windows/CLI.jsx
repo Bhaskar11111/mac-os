@@ -1,82 +1,71 @@
 import React from 'react'
-import CollapseWindow from './CollapseWindow'
 import Terminal from 'react-console-emulator'
+import { useAuth } from '../context/UserContext'
+import { useProfile } from '../context/ProfileContext'
+import CollapseWindow from './CollapseWindow'
 
 const CLI = ({ windowState, setWindowState, windowName }) => {
+  const { user } = useAuth()
+  const { profile } = useProfile()
+  const displayName = profile?.name || user?.name || 'Portfolio User'
+  const username = profile?.username || user?.email?.split('@')[0] || 'portfolio'
+  const skills = profile?.skills?.length ? profile.skills.join(', ') : 'No skills added yet'
+  const projects = profile?.projects?.length
+    ? profile.projects
+        .map((project) => `${project.title}\n- ${(project.techStack || []).join(' | ') || project.description || 'Project details pending'}`)
+        .join('\n\n')
+    : 'No projects added yet'
 
   const commands = {
     intro: {
-      description: "Show introduction",
-      usage: "intro",
+      description: 'Show introduction',
+      usage: 'intro',
       fn: () => `
-Bhaskar Mishra
-MERN Stack Developer | UI/UX Engineering
-
-Passionate developer building responsive,
-efficient and user-centered web applications.
+${displayName}
+${profile?.bio || 'Personal macOS portfolio workspace.'}
 `
     },
-
     skills: {
-      description: "List technical skills",
-      usage: "skills",
-      fn: () => `
-Languages:
-HTML, CSS, SCSS, JavaScript, C, C++
-
-Frameworks & Tools:
-React, Node.js, Express, MongoDB
-Tailwind CSS, GSAP, Framer Motion
-`
+      description: 'List technical skills',
+      usage: 'skills',
+      fn: () => skills
     },
-
     projects: {
-      description: "Show projects",
-      usage: "projects",
-      fn: () => `
-Arcade Movie Database
-- React | Tailwind | TMDb API
-
-Sac-Ville E-Commerce
-- MongoDB | Express | Node.js | EJS
-
-Macintosh - macOS Inspired Portfolio
-- React | Tailwind | GSAP
-`
+      description: 'Show projects',
+      usage: 'projects',
+      fn: () => projects
     },
-
     contact: {
-      description: "Show contact info",
-      usage: "contact",
+      description: 'Show contact info',
+      usage: 'contact',
       fn: () => `
-Email   : bhaskarmishra911@gmail.com
-Phone   : +91 9522508486
-GitHub  : github.com/bhaskar11111
-LinkedIn: linkedin.com/in/https://www.linkedin.com/in/bhaskar-mishra-59219632a?utm_source=share_via&utm_content=profile&utm_medium=member_android
+Email   : ${profile?.socials?.email || user?.email || 'Not added'}
+GitHub  : ${profile?.socials?.github || 'Not added'}
+LinkedIn: ${profile?.socials?.linkedin || 'Not added'}
+Spotify : ${profile?.socials?.spotify || 'Not added'}
 `
-    },
-  };
+    }
+  }
 
   const welcomeMessages = `
-┌──────────────────────────────────────────────┐
-│   ACCESSING: BHASKAR_MISHRA@PORTFOLIO_SYS   │
-└──────────────────────────────────────────────┘
++----------------------------------------------+
+|   ACCESSING: ${username.toUpperCase()}@PORTFOLIO_SYS   |
++----------------------------------------------+
 
-[+] Establishing secure connection...
 [+] Loading user profile...
-[+] Decrypting command registry...
+[+] Preparing command registry...
 [+] System ready.
 
 AVAILABLE COMMANDS:
 
 > intro       :: display identity
-> skills      :: list technical arsenal
+> skills      :: list technical skills
 > projects    :: enumerate active builds
 > contact     :: show communication channels
 > clear       :: purge terminal buffer
 
 TYPE COMMAND AND PRESS ENTER
-`;
+`
 
   return (
     <CollapseWindow
@@ -91,19 +80,19 @@ TYPE COMMAND AND PRESS ENTER
       <div className="w-[40.7vw] h-[50vh]">
         <Terminal
           style={{
-            color: "#00C950",
-            backgroundColor: "transparent",
-            fontSize: "12px",
-            width: "100%",
-            height: "100%"
+            color: '#00C950',
+            backgroundColor: 'transparent',
+            fontSize: '12px',
+            width: '100%',
+            height: '100%'
           }}
           contentStyle={{
-            color: "#00C950",
-            fontSize: "13px"
+            color: '#00C950',
+            fontSize: '13px'
           }}
           commands={commands}
           welcomeMessage={welcomeMessages}
-          promptLabel="bhaskarmishra~$%"
+          promptLabel={`${username}~$%`}
         />
       </div>
     </CollapseWindow>
