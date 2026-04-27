@@ -1,15 +1,11 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Dock from './Dock'
 import Navbar from './Navbar'
-import CollapseWindow from '../windows/CollapseWindow'
 import Github from '../windows/Github'
 import Notes from '../windows/Notes'
 import Spotify from '../windows/Spotify'
-import Terminal from 'react-console-emulator'
 import CLI from '../windows/CLI'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
 import DesktopOnly from './DesktopOnly'
 import Hercules from '../windows/Hercules'
 import ProfileEditor from '../windows/ProfileEditor'
@@ -28,6 +24,34 @@ const Home = () => {
     profileEditor:false,
     portfolio:false
   })
+  const [windowStack,setWindowStack]=useState({
+    github:10,
+    notes:10,
+    spotify:10,
+    cli:10,
+    hercules:10,
+    profileEditor:10,
+    portfolio:10
+  })
+  const topZIndexRef=useRef(20)
+
+  const bringToFront = (windowName) => {
+    if (!windowName) return
+
+    topZIndexRef.current += 1
+    setWindowStack((prev) => ({
+      ...prev,
+      [windowName]: topZIndexRef.current
+    }))
+  }
+
+  const openWindow = (windowName) => {
+    setWindowState((prev) => ({
+      ...prev,
+      [windowName]: !prev[windowName]
+    }))
+    bringToFront(windowName)
+  }
   
   useEffect(() => {
     const handleResize = () => {
@@ -45,15 +69,15 @@ const Home = () => {
   return (
       <>
     <div className="w-full min-h-screen relative overflow-hidden bg-[url('/background.jpg')] relative bg-cover bg-center">
-      {windowState.github?<Github windowName='github' windowState={windowState} setWindowState={setWindowState}/>:''}
-      {windowState.hercules?<Hercules windowName='hercules' windowState={windowState} setWindowState={setWindowState}/>:''}
-      {windowState.notes?<Notes windowName='notes' windowState={windowState} setWindowState={setWindowState}/>:''}
-      {windowState.spotify?<Spotify windowName='spotify' windowState={windowState} setWindowState={setWindowState}/>:''}
-      {windowState.cli?<CLI windowName='cli' windowState={windowState} setWindowState={setWindowState}/>:''}
-      {windowState.profileEditor?<ProfileEditor windowName='profileEditor' windowState={windowState} setWindowState={setWindowState}/>:''}
-      {windowState.portfolio?<Portfolio windowName='portfolio' windowState={windowState} setWindowState={setWindowState}/>:''}
+      {windowState.github?<Github windowName='github' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.github} bringToFront={bringToFront}/>:''}
+      {windowState.hercules?<Hercules windowName='hercules' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.hercules} bringToFront={bringToFront}/>:''}
+      {windowState.notes?<Notes windowName='notes' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.notes} bringToFront={bringToFront}/>:''}
+      {windowState.spotify?<Spotify windowName='spotify' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.spotify} bringToFront={bringToFront}/>:''}
+      {windowState.cli?<CLI windowName='cli' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.cli} bringToFront={bringToFront}/>:''}
+      {windowState.profileEditor?<ProfileEditor windowName='profileEditor' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.profileEditor} bringToFront={bringToFront}/>:''}
+      {windowState.portfolio?<Portfolio windowName='portfolio' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.portfolio} bringToFront={bringToFront}/>:''}
       <Navbar/>
-      <Dock windowState={windowState} setWindowState={setWindowState}/>
+      <Dock openWindow={openWindow}/>
     </div>
     </>
   )

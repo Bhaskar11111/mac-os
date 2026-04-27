@@ -4,7 +4,7 @@ import PortfolioView from "../components/profile/PortfolioView";
 import { useProfile } from "../context/ProfileContext";
 import { getPublicProfile } from "../api/profileApi";
 
-const Portfolio = ({ windowName, windowState, setWindowState }) => {
+const Portfolio = ({ windowName, windowState, setWindowState, zIndex, bringToFront }) => {
   const { profile } = useProfile();
   const [publicProfile, setPublicProfile] = useState(null);
 
@@ -22,6 +22,8 @@ const Portfolio = ({ windowName, windowState, setWindowState }) => {
       windowName={windowName}
       windowState={windowState}
       setWindowState={setWindowState}
+      zIndex={zIndex}
+      bringToFront={bringToFront}
       height="72vh"
       width="58vw"
       x="330"

@@ -4,7 +4,7 @@ import { useAuth } from '../context/UserContext'
 import { useProfile } from '../context/ProfileContext'
 import CollapseWindow from './CollapseWindow'
 
-const CLI = ({ windowState, setWindowState, windowName }) => {
+const CLI = ({ windowState, setWindowState, windowName, zIndex, bringToFront }) => {
   const { user } = useAuth()
   const { profile } = useProfile()
   const displayName = profile?.name || user?.name || 'Portfolio User'
@@ -72,6 +72,8 @@ TYPE COMMAND AND PRESS ENTER
       windowName={windowName}
       windowState={windowState}
       setWindowState={setWindowState}
+      zIndex={zIndex}
+      bringToFront={bringToFront}
       width="42vw"
       height="52vh"
       x="450"

@@ -3,7 +3,7 @@ import CollapseWindow from './CollapseWindow'
 import { UserContext } from '../context/UserContext'
 import { useProfile } from '../context/ProfileContext'
 
-const Github = ({ windowState, setWindowState, windowName }) => {
+const Github = ({ windowState, setWindowState, windowName, zIndex, bringToFront }) => {
 
   const { user } = useContext(UserContext)
   const { profile } = useProfile()
@@ -15,6 +15,8 @@ const Github = ({ windowState, setWindowState, windowName }) => {
         windowState={windowState} 
         setWindowState={setWindowState} 
         windowName={windowName} 
+        zIndex={zIndex}
+        bringToFront={bringToFront}
         height='70vh' 
         width='50vw'
       >

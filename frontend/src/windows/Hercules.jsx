@@ -7,7 +7,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 
-const Hercules = ({ windowState, setWindowState, windowName }) => {
+const Hercules = ({ windowState, setWindowState, windowName, zIndex, bringToFront }) => {
 
   const [code, setCode] = useState("");
   const [language, setLanguage] = useState("javascript");
@@ -64,6 +64,8 @@ const Hercules = ({ windowState, setWindowState, windowName }) => {
       windowState={windowState}
       setWindowState={setWindowState}
       windowName={windowName}
+      zIndex={zIndex}
+      bringToFront={bringToFront}
       height="75vh"
       width="65vw"
     >

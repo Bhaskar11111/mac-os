@@ -2,11 +2,11 @@ import React from 'react'
 import { useProfile } from '../context/ProfileContext'
 import CollapseWindow from './CollapseWindow'
 
-const Notes = ({windowName,windowState,setWindowState}) => {
+const Notes = ({windowName,windowState,setWindowState,zIndex,bringToFront}) => {
   const { profile } = useProfile()
 
   return (
-    <CollapseWindow windowName={windowName} windowState={windowState} setWindowState={setWindowState} height='70vh' width='45vw' x='420'>
+    <CollapseWindow windowName={windowName} windowState={windowState} setWindowState={setWindowState} zIndex={zIndex} bringToFront={bringToFront} height='70vh' width='45vw' x='420'>
       <div className="space-y-4 p-5 text-white">
         <h1 className="text-2xl font-semibold">{profile?.name || 'About'}</h1>
         <p className="text-sm leading-relaxed text-white/70">
