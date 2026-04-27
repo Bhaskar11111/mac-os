@@ -91,7 +91,7 @@ const AuthPage = ({ mode }) => {
 
           <button
             disabled={loading}
-            className="w-full rounded-xl bg-white px-4 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-100 disabled:opacity-60"
+            className="w-full rounded-xl bg-white px-4 py-3 text-sm font-semibold text-zinc-950 transition cursor-pointer hover:bg-cyan-100 disabled:opacity-60"
           >
             {loading ? "Please wait..." : isRegister ? "Register" : "Login"}
           </button>

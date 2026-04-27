@@ -10,11 +10,13 @@ import DesktopOnly from './DesktopOnly'
 import Hercules from '../windows/Hercules'
 import ProfileEditor from '../windows/ProfileEditor'
 import Portfolio from '../windows/Portfolio'
+import WallpaperPicker from './WallpaperPicker'
 
 const Home = () => {
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth >= 1024
   );
+  const [wallpaper,setWallpaper]=useState(() => localStorage.getItem('desktopWallpaper') || '/background.jpg')
   const [windowState,setWindowState]=useState({
     github:false,
     notes:false,
@@ -68,7 +70,10 @@ const Home = () => {
 
   return (
       <>
-    <div className="w-full min-h-screen relative overflow-hidden bg-[url('/background.jpg')] relative bg-cover bg-center">
+    <div
+      className="w-full min-h-screen relative overflow-hidden bg-cover bg-center"
+      style={{ backgroundImage: `url("${wallpaper}")` }}
+    >
       {windowState.github?<Github windowName='github' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.github} bringToFront={bringToFront}/>:''}
       {windowState.hercules?<Hercules windowName='hercules' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.hercules} bringToFront={bringToFront}/>:''}
       {windowState.notes?<Notes windowName='notes' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.notes} bringToFront={bringToFront}/>:''}
@@ -78,6 +83,7 @@ const Home = () => {
       {windowState.portfolio?<Portfolio windowName='portfolio' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.portfolio} bringToFront={bringToFront}/>:''}
       <Navbar/>
       <Dock openWindow={openWindow}/>
+      <WallpaperPicker onChange={setWallpaper}/>
     </div>
     </>
   )

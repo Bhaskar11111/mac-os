@@ -35,7 +35,7 @@ const Navbar = () => {
         <div className="right w-[50%]  flex gap-3 items-center justify-end mr-2">
             <img src='/public/wifi.svg' alt="" />
             <h1><DateTime/></h1>
-            <button onClick={logout} className="text-sm text-white/70 hover:text-white">Logout</button>
+            <button onClick={logout} className="text-sm cursor-pointer hover:scale-110 transition-all duration-200 text-white/70 hover:text-white">Logout</button>
         </div>
     </div>
    

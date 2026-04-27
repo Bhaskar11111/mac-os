@@ -4,11 +4,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import authRoutes from "./src/routes/authRoutes.js";
 import profileRoutes from "./src/routes/profileRoutes.js";
-import connectDB from './src/config/database.js'
 
 dotenv.config();
-
-connectDB();
 
 const app = express();
 
@@ -25,14 +22,19 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
 
-app.post("/review-code", async (req, res) => {
-
+const reviewCodeHandler = async (req, res) => {
   try {
-
     const { code, language } = req.body;
 
     if (!code) {
       return res.status(400).json({ error: "Code required" });
+    }
+
+    if (!process.env.GEMINI_API_KEY) {
+      return res.status(500).json({
+        error: "AI review failed",
+        details: "GEMINI_API_KEY is not configured"
+      });
     }
 
     const prompt = `
@@ -76,34 +78,45 @@ ${code}
 
     const data = await response.json();
 
+    if (!response.ok) {
+      return res.status(response.status).json({
+        error: "AI review failed",
+        details:
+          data?.error?.message ||
+          data?.message ||
+          "Gemini API request failed"
+      });
+    }
+
     const text =
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
       "No response from AI";
 
     res.json({ review: text });
-
   } catch (error) {
-
     console.error("Gemini Error:", error);
 
     res.status(500).json({
       error: "AI review failed",
       details: error.message
     });
-
   }
+};
 
-});
+app.post("/review-code", reviewCodeHandler);
+app.post("/api/review-code", reviewCodeHandler);
 
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
   try {
-    if (process.env.MONGODB_URI) {
-      await mongoose.connect(process.env.MONGODB_URI);
+    const mongoUri = process.env.MONGODB_URI || process.env.CONNECTION_STRING;
+
+    if (mongoUri) {
+      await mongoose.connect(mongoUri);
       console.log("MongoDB connected");
     } else {
-      console.warn("MONGODB_URI is not configured; profile endpoints need MongoDB");
+      console.warn("MONGODB_URI is not configured; profile/auth endpoints need MongoDB");
     }
 
     app.listen(PORT, () => {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Home from '../src/components/Home'
 import AuthPage from './components/auth/AuthPage'
+import LandingPage from './components/landing/LandingPage'
 import { useAuth } from './context/UserContext'
 
 const App = () => {
@@ -10,12 +11,6 @@ const App = () => {
   useEffect(() => {
     const handlePath = () => setPath(window.location.pathname)
     window.addEventListener('popstate', handlePath)
-
-    if (window.location.pathname === '/') {
-      window.history.replaceState({}, '', '/register')
-      setPath('/register')
-    }
-
     return () => window.removeEventListener('popstate', handlePath)
   }, [])
 
@@ -27,12 +22,25 @@ const App = () => {
     )
   }
 
-  if (!user && path !== '/login') {
+  if (path === '/') {
+    return <LandingPage />
+  }
+
+  if (!user && path === '/register') {
     return <AuthPage mode="register" />
   }
 
   if (!user && path === '/login') {
     return <AuthPage mode="login" />
+  }
+
+  if (!user && path === '/desktop') {
+    window.history.replaceState({}, '', '/login')
+    return <AuthPage mode="login" />
+  }
+
+  if (!user) {
+    return <LandingPage />
   }
 
   if (user && (path === '/register' || path === '/login')) {

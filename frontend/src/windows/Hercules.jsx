@@ -29,7 +29,8 @@ const Hercules = ({ windowState, setWindowState, windowName, zIndex, bringToFron
       setLoading(true);
       setReview("");
 
-      const res = await fetch("http://localhost:5000/review-code", {
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const res = await fetch(`${apiUrl}/api/review-code`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -44,12 +45,16 @@ const Hercules = ({ windowState, setWindowState, windowName, zIndex, bringToFron
 
       console.log("AI Response:", data);
 
-      setReview(data.review);
+      if (!res.ok) {
+        throw new Error(data.details || data.error || "Code review failed");
+      }
+
+      setReview(data.review || "No review returned.");
 
     } catch (error) {
 
       console.error("Error:", error);
-      setReview("Error reviewing code.");
+      setReview(error.message || "Error reviewing code.");
 
     } finally {
 
