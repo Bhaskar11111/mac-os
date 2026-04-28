@@ -5,21 +5,6 @@ const navigateTo = (path) => {
   window.dispatchEvent(new PopStateEvent('popstate'))
 }
 
-const features = [
-  {
-    title: 'A desktop, not a template',
-    body: 'Every portfolio opens like a personal operating system, with draggable windows for projects, blogs, socials, GitHub, music, and more.'
-  },
-  {
-    title: 'Built for multi-user creators',
-    body: 'Sign up, save your profile, personalize your data, and turn a normal resume into an interactive public workspace.'
-  },
-  {
-    title: 'AI review built in',
-    body: 'Project Hercules helps developers review code inside the same portfolio environment they use to showcase their work.'
-  }
-]
-
 const stats = [
   ['macOS UI', 'Familiar, polished, memorable'],
   ['GitHub Sync', 'Top repositories cached automatically'],
@@ -30,7 +15,7 @@ const LandingPage = () => {
   return (
     <main className="min-h-screen overflow-y-auto bg-zinc-950 text-white">
       <section className="relative min-h-[92vh] overflow-hidden bg-[url('/background.jpg')] bg-cover bg-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-400/55 via-black/35 to-zinc-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-400/45 via-black/35 to-zinc-950" />
         <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <div className="flex items-center gap-3">
 
@@ -86,9 +71,9 @@ const LandingPage = () => {
             <img
               src="/macintosh2.png"
               alt="macOS portfolio preview"
-              className="absolute mt-5 right-0 top-8 w-[74%] max-w-md rounded-[2rem] object-contain drop-shadow-2xl"
+              className="absolute mt-5 hover:scale-110 transition-all duration-200 right-0 top-8 w-[74%] max-w-md rounded-[2rem] object-contain drop-shadow-2xl"
             />
-            <div className="absolute bottom-8 left-0 w-[82%] rounded-2xl border border-white/15 bg-black/45 p-4 shadow-2xl backdrop-blur-2xl sm:w-[72%]">
+            <div className="absolute hover:scale-110 transition-all duration-200 bottom-8 left-0 w-[82%] rounded-2xl border border-white/15 bg-black/45 p-4 shadow-2xl backdrop-blur-2xl sm:w-[72%]">
               <div className="mb-3 flex gap-2">
                 <span className="h-3 w-3 rounded-full bg-red-500" />
                 <span className="h-3 w-3 rounded-full bg-yellow-400" />

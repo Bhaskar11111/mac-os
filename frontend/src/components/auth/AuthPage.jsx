@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../../context/UserContext";
+import Redirect from "../Redirect";
 
 const AuthPage = ({ mode }) => {
   const isRegister = mode === "register";
@@ -38,6 +39,7 @@ const AuthPage = ({ mode }) => {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-[url('/background.jpg')] bg-cover bg-center px-4 text-white">
+      <Redirect/>
       <section className="w-full max-w-md rounded-2xl border border-white/15 bg-black/45 p-6 shadow-2xl backdrop-blur-2xl">
         <div className="mb-6 flex items-center gap-3">
           <img src="/apple.svg" alt="" className="h-7 w-7" />

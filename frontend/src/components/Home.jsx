@@ -11,12 +11,18 @@ import Hercules from '../windows/Hercules'
 import ProfileEditor from '../windows/ProfileEditor'
 import Portfolio from '../windows/Portfolio'
 import WallpaperPicker from './WallpaperPicker'
+import { useAuth } from '../context/UserContext'
+
+const DEFAULT_WALLPAPER = '/background.jpg'
 
 const Home = () => {
+  const { user } = useAuth()
+  const userWallpaperKey = user?.id || user?.email || 'guest'
+  const wallpaperStorageKey = `desktopWallpaper:${userWallpaperKey}`
   const [isDesktop, setIsDesktop] = useState(
     window.innerWidth >= 1024
   );
-  const [wallpaper,setWallpaper]=useState(() => localStorage.getItem('desktopWallpaper') || '/background.jpg')
+  const [wallpaper,setWallpaper]=useState(() => localStorage.getItem(wallpaperStorageKey) || DEFAULT_WALLPAPER)
   const [windowState,setWindowState]=useState({
     github:false,
     notes:false,
@@ -83,7 +89,7 @@ const Home = () => {
       {windowState.portfolio?<Portfolio windowName='portfolio' windowState={windowState} setWindowState={setWindowState} zIndex={windowStack.portfolio} bringToFront={bringToFront}/>:''}
       <Navbar/>
       <Dock openWindow={openWindow}/>
-      <WallpaperPicker onChange={setWallpaper}/>
+      <WallpaperPicker storageKey={wallpaperStorageKey} onChange={setWallpaper}/>
     </div>
     </>
   )
