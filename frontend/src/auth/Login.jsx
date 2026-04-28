@@ -21,7 +21,7 @@ export default function Login() {
     const data = await res.json()
 
     if (data.success) {
-      navigate("/") // 🔥 redirect to MacOS home
+      navigate("/") 
     } else {
       alert(data.message)
     }

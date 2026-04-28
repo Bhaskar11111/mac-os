@@ -86,6 +86,7 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
+          <h1 className='text-[9px] text-white/55 absolute bottom-1 right-1'>© 2026 Bhaskar Mishra. All rights reserved.</h1>
 
         <div className="relative z-10 mx-auto grid max-w-7xl gap-px px-6 pb-8 md:grid-cols-3">
           {stats.map(([title, body]) => (
